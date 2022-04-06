@@ -1,0 +1,10 @@
+.addBookBtn{
+    background-color: transparent;
+    border-color: transparent;
+    color: rgba(255,255,255,.55);
+}
+.addBookBtn:hover{
+    color: white;
+    border-color: #00CED1;
+    background-color: transparent;
+}
