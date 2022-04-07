@@ -4,8 +4,8 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "mypgs-devtooling-dev.tfstate"
-    key    = "hack-a-pg-prod/terraform.tfstate"
+    bucket = "book-list-app.tfstate"
+    key    = "book-list-app-prod/terraform.tfstate"
     region = "us-east-1"
   }
 }
