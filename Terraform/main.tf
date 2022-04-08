@@ -4,7 +4,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "book-list-app.tfstate"
+    bucket = "mypgs-sandbox.tfstate"
     key    = "book-list-app-prod/terraform.tfstate"
     region = "us-east-1"
   }

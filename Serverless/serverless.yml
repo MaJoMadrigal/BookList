@@ -1,20 +1,12 @@
-service: serverlessapi
+service: serverless
 frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: nodejs12.x
-
-functions:
-  hello:
-    handler: handler.hello
-
-    provider:
-  name: aws
   runtime: python3.8
   stage: ${opt:stage}
 
-  deploymentBucket:
+deploymentBucket:
     name: ${ssm:account_code_bucket_name}
     serverSideEncryption: AES256
 
@@ -36,6 +28,14 @@ package:
     - ../shared/**
     - ../__init__.py-
 
-
-plugins:
-  - serverless-python-requirements
+functions:    
+  test-books:
+    handler: test-books.test
+    events:
+      - http:
+          path: /test-books
+          method: get
+          cors:
+            origins:
+                - "*"
+            allowCredentials: true
