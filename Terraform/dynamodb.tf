@@ -1,4 +1,4 @@
-resource "aws_dynamodb_table" "book-list-app-table"
+resource "aws_dynamodb_table" "book-list-app-table" {
   billing_mode     = "PAY_PER_REQUEST"
   hash_key         = "pk"
   range_key        = "sk"
