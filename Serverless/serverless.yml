@@ -6,16 +6,16 @@ provider:
   runtime: python3.8
   stage: ${opt:stage}
 
-deploymentBucket:
-    name: ${ssm:account_code_bucket_name}
-    serverSideEncryption: AES256
+  deploymentBucket:
+      name: ${ssm:account_code_bucket_name}
+      serverSideEncryption: AES256
 
   iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:*
       Resource: 
-        - arn:aws:dynamodb:us-east-1:435971970349:table/hack-a-pg-table
+        - arn:aws:dynamodb:us-east-1:114660185804:table/book-list-app-table
 
 package:
   excludeDevDependencies: True
@@ -34,6 +34,17 @@ functions:
     events:
       - http:
           path: /test-books
+          method: get
+          cors:
+            origins:
+                - "*"
+            allowCredentials: true
+  
+  get-books:
+    handler: get-books.handler
+    events:
+      - http:
+          path: /get-books
           method: get
           cors:
             origins:

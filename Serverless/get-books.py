@@ -15,14 +15,10 @@ def handler(event, context):
 
         books = result["Items"]
 
-        result = table.query(
-            ProjectionExpression = "id,name,author,image,review,#elements,#bk",
-            ExpressionAttributeNames = {
-                "#elements":"items",
-                "bk":"book"
-            },
+        """ result = table.query(
+            ProjectionExpression = "id,name,author,image,review",
             KeyConditionExpression = Key('pk').eq("#book")
-        )
+        ) """
         
         books_response = []
 

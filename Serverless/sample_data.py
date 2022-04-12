@@ -1,4 +1,4 @@
-BOOK = [
+BOOKS = [
     {
         "name": "This is the book name 1",
         "author": "Gabriel García Márquez",
