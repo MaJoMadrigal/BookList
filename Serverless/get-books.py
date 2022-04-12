@@ -15,11 +15,6 @@ def handler(event, context):
 
         books = result["Items"]
 
-        """ result = table.query(
-            ProjectionExpression = "id,name,author,image,review",
-            KeyConditionExpression = Key('pk').eq("#book")
-        ) """
-        
         books_response = []
 
         for book in books:
