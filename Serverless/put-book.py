@@ -1,8 +1,7 @@
-from multiprocessing import AuthenticationError
-from urllib import response
 from helper import (http_success, http_internal_error)
 import boto3
 from boto3.dynamodb.conditions import Key
+import json
 
 
 def handler(event, context):
@@ -11,16 +10,25 @@ def handler(event, context):
     table = dynamo.Table("book-list-app-table")
 
     try:
-        response = book = table.put_item(
+        json_event = json.loads(event['body'])
+        id = json_event['id']
+        name = json_event['name']
+        author = json_event['author']
+        image = json_event['image']
+        review = json_event['review']
+
+        response = table.put_item(
             Item = {
-                'name': event['name'],
-                'author': event['author'],
-                'image': event['image'],
-                'review':event['review']
+                'pk': '#book',
+                'sk': f'#{name}#{id}',
+                'name': name,
+                'author': author,
+                'image': image,
+                'review':review
             }
         )
 
-        return http_success(response)
+        return http_success({'body':'Successfully created'})
 
     except:
         return http_internal_error()
