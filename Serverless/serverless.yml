@@ -60,3 +60,14 @@ functions:
             origins:
                 - "*"
             allowCredentials: true
+
+  delete-book:
+    handler: delete-book.handler
+    events:
+      - http:
+          path: /delete-book
+          method: delete
+          cors:
+            origins:
+                - "*"
+            allowCredentials: true
