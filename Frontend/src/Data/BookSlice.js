@@ -1,4 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+
+export const getBooks = createAsyncThunk(
+  "books/getBooks",
+  async (dispatch, getState) => {
+    return await fetch('https://eon0nix5j9.execute-api.us-east-1.amazonaws.com/prod/get-books').then(
+     (res) => res.json()
+    )
+  }
+)
 
 const initialState = {
   bookList: [],

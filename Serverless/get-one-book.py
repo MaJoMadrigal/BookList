@@ -7,10 +7,11 @@ def handler(event, context):
 
     dynamo = boto3.resource("dynamodb")
     table = dynamo.Table("book-list-app-table")
+    name = event['queryStringParameters']['name']
 
     try:
         result = books = table.query(
-            KeyConditionExpression = Key('pk').eq("#book")
+            KeyConditionExpression = Key('pk').eq('#book')&Key('sk').begins_with(f'#{name}')
         )
 
         books = result["Items"]

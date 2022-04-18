@@ -20,7 +20,8 @@ def handler(event, context):
         response = table.put_item(
             Item = {
                 'pk': '#book',
-                'sk': f'#{id}#{name}',
+                'sk': f'#{name}#{id}',
+                'id': id,
                 'name': name,
                 'author': author,
                 'image': image,

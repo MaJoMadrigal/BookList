@@ -9,13 +9,15 @@ def handler(event, context):
     dynamo = boto3.resource("dynamodb")
     table = dynamo.Table("book-list-app-table")
     id = event['queryStringParameters']['id']
+    name = event['queryStringParameters']['name']
+
     try:
         response = table.query(
             ExpressionAttributeValues = {
                 ':book': '#book',
-                ':id': f'#{id}'
+                ':sk': f'#{name}#{id}'
             },
-            KeyConditionExpression = 'pk=:book and begins_with(sk, :id)'
+            KeyConditionExpression = 'pk=:book and begins_with(sk, :sk)'
         )
         
         for bookItem in response['Items']:
