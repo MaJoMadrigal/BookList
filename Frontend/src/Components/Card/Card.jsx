@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deletee } from '../../Data/BookSlice'
+import { deletee, getBooks } from '../../Data/BookSlice'
 import { Button } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 import { body } from './style'
@@ -8,6 +8,10 @@ import { body } from './style'
 function SmallCard() {
   const know = useSelector((state) => state.bookStore.bookList)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getBooks());
+  }, [dispatch]);
 
   return (
     <section style={body}>

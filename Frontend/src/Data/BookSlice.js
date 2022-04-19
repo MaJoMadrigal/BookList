@@ -9,6 +9,15 @@ export const getBooks = createAsyncThunk(
   }
 )
 
+export const deleteBooks = createAsyncThunk(
+  "books/deleteBooks",
+  async (dispatch, deleteState) => {
+    return await fetch(`https://eon0nix5j9.execute-api.us-east-1.amazonaws.com/prod/delete-book?name=${payload.name}&id=${payload.id}`).then(
+     (res) => res.json()
+    )
+  }
+)
+
 const initialState = {
   bookList: [],
   mode: false,
@@ -49,6 +58,13 @@ const customerSlice = createSlice({
       }
     },
   },
+
+  extraReducers: {
+    [getBooks.fulfilled]: (state, action) => {
+      state.status = "success";
+      state.bookList = action.payload.books;
+    }
+  }
 })
 
 // Action creators for each reducer method
