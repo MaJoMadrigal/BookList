@@ -9,7 +9,7 @@ function Mode() {
     setTimeout(() => dispatch(noModeContent()), 3000)
   })
 
-  if (modeContent === 'Please write your discovery') {
+  if (modeContent === 'Please write your book') {
     return (
       <div
         className='alert alert-danger d-flex align-items-center'
