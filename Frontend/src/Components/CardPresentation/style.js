@@ -1,7 +1,7 @@
 import background from './background.jpg'
 export const body = {
-  backgroundImage: `url(${background})`,
-  backgroundSize: 'cover',
+  //backgroundImage: `url(${background})`,
+  //backgroundSize: 'cover',
   paddingTop: '23px',
   paddingBottom: '60px',
   paddingLeft: '20px',

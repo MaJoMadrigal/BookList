@@ -28,7 +28,11 @@ def handler(event, context):
                 }
             )
 
-        return http_success({'body':'Successfully deleted'})
+        book = {
+            'id': id
+        }
+
+        return http_success({'body':'Successfully deleted', 'origin':book})
 
     except:
         return http_internal_error()

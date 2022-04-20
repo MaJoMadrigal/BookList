@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deletee, getBooks } from '../../Data/BookSlice'
+import { getBooks, deleteBook } from '../../Data/BookSlice'
 import { Button } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 import { body } from './style'
@@ -42,7 +42,8 @@ function SmallCard() {
           </a>
           <Button
             variant='primary'
-            onClick={() => dispatch(deletee({ id: point.id }))}
+            className='deleteBookBtn'
+            onClick={() => dispatch(deleteBook({ name: point.name ,id: point.id }))}
           >
             Delete
           </Button>

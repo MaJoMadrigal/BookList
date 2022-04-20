@@ -7,3 +7,15 @@
     background-color: transparent;
     border-color: aquamarine;
 }
+
+.deleteBookBtn{
+    border-color: aquamarine;
+    background-color: transparent;
+    color: black;
+}
+
+.deleteBookBtn:hover{
+    border-color: aquamarine;
+    background-color: aquamarine;
+    color: black;
+}

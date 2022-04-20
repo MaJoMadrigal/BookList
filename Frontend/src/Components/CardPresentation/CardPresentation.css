@@ -1,0 +1,9 @@
+:root {
+    --color1: #F2FFFB;
+    --color2: #7FFFD4;
+  }
+  
+.cardGradient {
+--bg: linear-gradient(to bottom, var(--color1), var(--color2));
+background: var(--bg);
+}

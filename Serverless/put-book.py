@@ -29,7 +29,15 @@ def handler(event, context):
             }
         )
 
-        return http_success({'body':'Successfully created'})
+        book = {
+            'id': id,
+            'name': name,
+            'author': author,
+            'image': image,
+            'review':review
+        }
+
+        return http_success({'body':'Successfully created', 'origin':book})
 
     except:
         return http_internal_error()
