@@ -12,6 +12,7 @@
     border-color: aquamarine;
     background-color: transparent;
     color: black;
+    width: 100%;
 }
 
 .deleteBookBtn:hover{

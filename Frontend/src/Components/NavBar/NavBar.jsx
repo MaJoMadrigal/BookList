@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navbar, Nav,Container, Button } from 'react-bootstrap'
 import icon from './NavBarImg.png'
-import Form from '../Form/Form'
+import {LinkContainer} from 'react-router-bootstrap'
 import './NavBar.css'
 
 function NavBar() {
@@ -10,11 +10,17 @@ function NavBar() {
     <>
   <Navbar bg="dark" variant="dark">
     <Container>
-      <Navbar.Brand href='#home'>
+      <Navbar.Brand href='/'>
         <img alt='' src={icon} width='80' height='70' /> Book List App
       </Navbar.Brand>
       <Nav className="me-auto">
-        <Button className='addBookBtn' onClick=''>New Book</Button>
+        <LinkContainer to="/">
+          <Nav.Link>Home</Nav.Link>
+        </LinkContainer>
+        <LinkContainer to="/newBook">
+          <Nav.Link>New Book</Nav.Link>
+        </LinkContainer>
+        
       </Nav>
       
     </Container>

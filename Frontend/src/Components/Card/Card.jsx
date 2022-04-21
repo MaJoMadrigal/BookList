@@ -20,7 +20,13 @@ function SmallCard() {
         <input class="form-control" type="search" placeholder="Find some books..." aria-label="Search" value={searchBook} onChange={(e) => setSearchBook(e.target.value)}></input>
       </div>
       <div style={body}>
-        {know.map((point) => (
+        {know.filter((point) => {
+          if (searchBook==="") return point;
+          else if(point.name.toLowerCase().includes(searchBook.toLowerCase())){
+            return point
+          }
+        })
+        .map((point) => (
           <Card
             style={{
             width: '20rem',
@@ -42,9 +48,6 @@ function SmallCard() {
             </Card.Subtitle>
             <Card.Text>{point.review}</Card.Text>
             <footer className='blockquote-footer'>{point.user}</footer>
-            <a href={point.link} className='btn btn-secondary me-2' target='_'>
-              Link
-            </a>
             <Button
               variant='primary'
               className='deleteBookBtn'
