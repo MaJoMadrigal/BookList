@@ -1,0 +1,19 @@
+name: Deployment Pipeline
+
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  changes:
+    runs-on: ubuntu-20.04
+    outputs:
+
+    steps:
+
+  terraform:
+    needs: changes
+        if: ${{ needs.changes.outputs.terraform == 'true' }}
+        runs-on: ubuntu-20.04
+        name: "Terraform"
+        steps:

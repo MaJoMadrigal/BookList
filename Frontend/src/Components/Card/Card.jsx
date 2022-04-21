@@ -17,7 +17,7 @@ function SmallCard() {
   return (
     <section>
       <div>
-        <input class="form-control" type="search" placeholder="Find some books..." aria-label="Search" value={searchBook} onChange={(e) => setSearchBook(e.target.value)}></input>
+        <input class="form-control searchBooks" type="search" placeholder="Find some books..." aria-label="Search" value={searchBook} onChange={(e) => setSearchBook(e.target.value)}></input>
       </div>
       <div style={body}>
         {know.filter((point) => {

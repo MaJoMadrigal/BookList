@@ -1,0 +1,6 @@
+.searchBooks{
+    display: flex;
+    place-content: space-between;
+    margin-top: 1rem;
+    width: 70%;
+}
