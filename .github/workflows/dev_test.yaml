@@ -96,5 +96,5 @@ jobs:
           python -m pip install --upgrade pip
       - name: "Serverless Deploy"
         run: |
-          sls deploy
+          sls deploy --stage prod
         working-directory: Serverless
