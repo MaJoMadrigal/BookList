@@ -56,7 +56,7 @@ jobs:
         id: init
         run: |
           terraform init
-        working-directory: stack/terraform
+        working-directory: Terraform
 
       - name: Terraform Plan
         id: plan
