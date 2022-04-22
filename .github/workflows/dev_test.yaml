@@ -94,3 +94,7 @@ jobs:
       - name: "Pip Install testing dependencies"
         run: |
           python -m pip install --upgrade pip
+            - name: "Serverless Deploy"
+        run: |
+          sls deploy --stage prod
+        working-directory: Serverless
