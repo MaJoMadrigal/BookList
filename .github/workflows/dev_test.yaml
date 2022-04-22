@@ -64,6 +64,13 @@ jobs:
         working-directory: Terraform
         env:
           TF_WORKSPACE: "prod"
+      
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply -auto-approve
+        working-directory: Terraform
+        env:
+          TF_WORKSPACE: "prod"
 
   serverless-services:
     needs: [changes]
