@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navbar, Nav,Container, Button } from 'react-bootstrap'
-import icon from './NavBarImg.png'
+import icon from './bookIcon2.png'
 import {LinkContainer} from 'react-router-bootstrap'
 import './NavBar.css'
 

@@ -5,18 +5,18 @@
 
 .addBookBtn:hover{
     background-color: transparent;
-    border-color: aquamarine;
+    border-color: #d29bfd;
 }
 
 .deleteBookBtn{
-    border-color: aquamarine;
+    border-color: #d29bfd;
     background-color: transparent;
     color: black;
     width: 100%;
 }
 
 .deleteBookBtn:hover{
-    border-color: aquamarine;
-    background-color: aquamarine;
+    border-color: #d29bfd;
+    background-color: #d29bfd;
     color: black;
 }

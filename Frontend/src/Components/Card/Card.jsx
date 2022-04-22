@@ -4,6 +4,7 @@ import { getBooks, deleteBook } from '../../Data/BookSlice'
 import { Button } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 import { body } from './style'
+import './Card.css'
 
 function SmallCard() {
   const know = useSelector((state) => state.bookStore.bookList)
@@ -16,7 +17,7 @@ function SmallCard() {
 
   return (
     <section>
-      <div>
+      <div className='divSearchBooks'>
         <input class="form-control searchBooks" type="search" placeholder="Find some books..." aria-label="Search" value={searchBook} onChange={(e) => setSearchBook(e.target.value)}></input>
       </div>
       <div style={body}>

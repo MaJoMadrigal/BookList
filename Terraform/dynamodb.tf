@@ -1,6 +1,3 @@
-# App table
-# Comment 2
-
 resource "aws_dynamodb_table" "book-list-app-dynamo-table" {
   name             = "book-list-app-table"
   billing_mode     = "PAY_PER_REQUEST"
