@@ -1,7 +1,4 @@
-name: Push Pipeline
-#Comment1
-#Comment1
-#Comment1
+name: PR Pipeline
 #Comment1
 on:
   push:
