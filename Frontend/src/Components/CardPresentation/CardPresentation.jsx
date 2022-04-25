@@ -5,12 +5,17 @@ import { Card } from 'react-bootstrap'
 import { body, secondBody, thirdBody } from './style'
 import './CardPresentation.css'
 import NavBar from '../NavBar/NavBar'
+/* import Mode from './Components/Mode/Mode' */
+import { useSelector } from 'react-redux'
+import Mode from '../Mode/Mode'
 
 
 function CardPresentation() {
+  const mode = useSelector((state) => state.bookStore.mode)
   return (
     <div className='cardGradient'>
       <NavBar/>
+      {mode && <Mode />}
       <div style={body}>
         <div style={thirdBody}>
           <Card style={secondBody}>

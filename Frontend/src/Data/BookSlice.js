@@ -53,7 +53,7 @@ const customerSlice = createSlice({
   reducers: {
     noValue: (state) => {
       state.mode = true
-      state.modeContent = 'Please write your book'
+      state.modeContent = 'Please, complete the form!'
     },
 
     noModeContent: (state) => {
@@ -77,6 +77,8 @@ const customerSlice = createSlice({
       };
     },
     [putBook.fulfilled]: (state, action) => {
+      state.mode = true
+      state.modeContent = 'Book added';
       state.status = "success";
       state.bookList = action.payload.books;
     }
