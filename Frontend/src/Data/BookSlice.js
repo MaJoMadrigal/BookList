@@ -24,17 +24,17 @@ export const deleteBook = createAsyncThunk(
 export const putBook = createAsyncThunk(
   "books/putBook",
   async (payload) => {
-    const { id, name, author, review } = payload.load.origin;
+    const { id, name, author, image, review } = payload.load;
     return await fetch('https://eon0nix5j9.execute-api.us-east-1.amazonaws.com/prod/put-book',
     {
       method:"PUT",
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id, name, author, review })
+      body: JSON.stringify({ id, name, author, image, review })
     }).then(
      (res) => res.json()
     )
   }
-)
+);
 
 const initialState = {
   bookList: [],
@@ -51,15 +51,9 @@ const customerSlice = createSlice({
 
   // Reducer methods
   reducers: {
-    addBook: (state, action) => {
-      state.bookList.push(action.payload.load)
-      state.mode = true
-      state.modeContent = 'New book added'
-    },
-
     noValue: (state) => {
       state.mode = true
-      state.modeContent = 'Please write your discovery'
+      state.modeContent = 'Please write your book'
     },
 
     noModeContent: (state) => {
@@ -90,7 +84,7 @@ const customerSlice = createSlice({
 })
 
 // Action creators for each reducer method
-export const { addBook, noValue, noModeContent } =
+export const { noValue, noModeContent } =
   customerSlice.actions
 
 export default customerSlice.reducer

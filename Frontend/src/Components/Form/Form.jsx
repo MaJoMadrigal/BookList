@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addBook, noValue } from '../../Data/BookSlice'
+import { noValue, putBook } from '../../Data/BookSlice'
 import './Form.css'
 
 function Form() {
@@ -15,7 +15,7 @@ function Form() {
     e.preventDefault()
     if (name && author && image && review) {
       dispatch(
-        addBook({
+        putBook({
           load: {
             id: new Date().getTime().toString(),
             name,
