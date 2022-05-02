@@ -10,6 +10,10 @@ function SmallCard() {
   const know = useSelector((state) => state.bookStore.bookList)
   const dispatch = useDispatch()
   const [searchBook, setSearchBook] = useState('');
+  const [isReadMoreShown,setReadMoreShown] = useState(false);
+  const toggleBtn = () => {
+    setReadMoreShown(prevState => !prevState)
+  }
 
   useEffect(() => {
     dispatch(getBooks());
@@ -22,7 +26,9 @@ function SmallCard() {
       </div>
       <div style={body}>
         {know.filter((point) => {
-          if (searchBook==="") return point;
+          if (searchBook===""){
+            return point;
+          }
           else if(point.name.toLowerCase().includes(searchBook.toLowerCase())){
             return point
           }
@@ -34,7 +40,7 @@ function SmallCard() {
             boxShadow: '0 0 12px rgba(0,0,0,0.5)',
             borderRadius: '15px',
           }}
-        >
+          >
           <Card.Body>
             <Card.Img variant="top" src={point.image}/>
             <Card.Header>
@@ -47,8 +53,11 @@ function SmallCard() {
             >
               {point.author}
             </Card.Subtitle>
-            <Card.Text>{point.review}</Card.Text>
-            <footer className='blockquote-footer'>{point.user}</footer>
+            <Card.Text>
+              { isReadMoreShown ? (point.review) : (point.review).substr(0,100) }
+              <button onClick={toggleBtn}>{isReadMoreShown ? 'Read less' : 'Read more'}</button>
+            </Card.Text>
+            {/* <footer className='blockquote-footer'>{point.user}</footer> */}
             <Button
               variant='primary'
               className='deleteBookBtn'
