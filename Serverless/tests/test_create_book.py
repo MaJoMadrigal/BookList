@@ -1,6 +1,8 @@
 import boto3
 import os
 from create_book import create_book
+from create_book import compare_books
+import json
 
 
 class StubBook:
@@ -28,4 +30,4 @@ def test_create_book(dynamodb_table):
     book_instance = StubBook()
     table = mocked_table()
     assert create_book(book=book_instance, table=table) == book_instance
-    assert compare_books(book=None, table=default_table) == True
+    assert compare_books(book=None, table=table) == book_instance.to_item()
