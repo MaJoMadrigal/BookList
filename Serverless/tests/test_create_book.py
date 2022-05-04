@@ -2,6 +2,7 @@ import boto3
 import os
 from create_book import create_book
 
+
 class StubBook:
 
     def __init__(self):
@@ -26,5 +27,5 @@ def mocked_table():
 def test_create_book(dynamodb_table):
     book_instance = StubBook()
     table = mocked_table()
-    assert dynamodb_table == True
     assert create_book(book=book_instance, table=table) == book_instance
+    assert compare_books(book=None, table=default_table) == True

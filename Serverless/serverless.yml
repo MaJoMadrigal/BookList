@@ -50,11 +50,11 @@ functions:
             origins:
                 - "*"
             allowCredentials: true
-  put-book:
-    handler: put-book.handler
+  put_book:
+    handler: put_book.handler
     events:
       - http:
-          path: /put-book
+          path: /put_book
           method: put
           cors:
             origins:

@@ -1,3 +1,4 @@
+from enum import auto
 from helper import (http_success, http_internal_error)
 import boto3
 from boto3.dynamodb.conditions import Key
@@ -11,11 +12,7 @@ def handler(event, context):
 
     try:
         json_event = json.loads(event['body'])
-        id = json_event['id']
-        name = json_event['name']
-        author = json_event['author']
-        image = json_event['image']
-        review = json_event['review']
+        id, name, author, image, review = json_event.values();
 
         response = table.put_item(
             Item = {

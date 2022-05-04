@@ -25,7 +25,7 @@ export const putBook = createAsyncThunk(
   "books/putBook",
   async (payload) => {
     const { id, name, author, image, review } = payload.load;
-    return await fetch('https://eon0nix5j9.execute-api.us-east-1.amazonaws.com/prod/put-book',
+    return await fetch('https://eon0nix5j9.execute-api.us-east-1.amazonaws.com/prod/put_book',
     {
       method:"PUT",
       headers: { 'Content-Type': 'application/json' },
