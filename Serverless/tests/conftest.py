@@ -1,8 +1,6 @@
 import os
-
 import boto3
 import pytest
-
 from moto import mock_dynamodb
 
 os.environ['DYNAMODB_TABLE'] = 'book-list-app-table'
