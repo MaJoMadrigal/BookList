@@ -3,8 +3,6 @@ import boto3
 from boto3.dynamodb.conditions import Key
 import json
 
-dynamo = boto3.resource("dynamodb")
-table = dynamo.Table("book-list-app-table")
 
 def handler(event, context):
 

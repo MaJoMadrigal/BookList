@@ -1,5 +1,6 @@
 import boto3
 import os
+from put_book_t import handler
 
 def get_table():
     dynamodb = boto3.resource("dynamodb", region_name='us-east-1')
@@ -9,7 +10,7 @@ def get_table():
 # This will run in the Lambda environment and be reused across invocations
 default_table = get_table()
 
-def create_book(book=None, table=default_table):
+def create_book_func(book=None, table=default_table):
     try:
         table.put_item(
             Item=book.to_item()
@@ -23,15 +24,14 @@ def create_book(book=None, table=default_table):
             "error": error_message
         }
 
-def compare_books(book=None, table=default_table):
+def test_put_book(book=None, table=default_table):
     try:
-        response = table.get_item(
+        handler(book,table)
+        response_put = table.get_item(
             Key={
                 'PK': '#book',
                 'SK':'#Computer Networks#1650904638460'}
         )
-        return response["Item"]
+        return response_put["Item"]
     except Exception as e:
-        print("Error creating book")
-        print(e)
         return False
