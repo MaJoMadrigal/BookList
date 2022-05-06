@@ -7,7 +7,6 @@ import './NavBar.css'
 function NavBar() {
 
   return (
-    <>
   <Navbar bg="dark" variant="dark">
     <Container>
       <Navbar.Brand href='/'>
@@ -20,12 +19,9 @@ function NavBar() {
         <LinkContainer to="/newBook">
           <Nav.Link>New Book</Nav.Link>
         </LinkContainer>
-        
       </Nav>
-      
     </Container>
   </Navbar>
-</>
   )
 }
 export default NavBar

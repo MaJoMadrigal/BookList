@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBooks, deleteBook } from '../../Data/BookSlice'
-import { Button } from 'react-bootstrap'
-import { Card } from 'react-bootstrap'
+import { Button } from 'react-bootstrap' //Misma linea
+import { Card } from 'react-bootstrap' //Misma linea
 import { body } from './style'
 import './Card.css'
 

@@ -71,14 +71,3 @@ functions:
             origins:
                 - "*"
             allowCredentials: true
-
-  get-one-book:
-    handler: get-one-book.handler
-    events:
-      - http:
-          path: /get-one-book
-          method: get
-          cors:
-            origins:
-                - "*"
-            allowCredentials: true
