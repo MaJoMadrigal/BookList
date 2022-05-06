@@ -8,3 +8,17 @@
 .divSearchBooks{
     text-align: -webkit-center;
 }
+
+
+.readBtn{
+    margin-left: 10px;
+    border-color: #d29bfd;
+    background-color: transparent;
+    color: black;
+}
+
+.readBtn:hover{
+    border-color: #d29bfd;
+    background-color: #d29bfd;
+    color: black;
+}

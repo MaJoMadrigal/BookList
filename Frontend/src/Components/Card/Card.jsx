@@ -55,9 +55,8 @@ function SmallCard() {
             </Card.Subtitle>
             <Card.Text>
               { isReadMoreShown ? (point.review) : (point.review).substr(0,100) }
-              <button onClick={toggleBtn}>{isReadMoreShown ? 'Read less' : 'Read more'}</button>
+              <button className='readBtn' onClick={toggleBtn}>{isReadMoreShown ? 'Read less' : 'Read more'}</button>
             </Card.Text>
-            {/* <footer className='blockquote-footer'>{point.user}</footer> */}
             <Button
               variant='primary'
               className='deleteBookBtn'
