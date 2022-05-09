@@ -15,6 +15,7 @@
     border-color: #d29bfd;
     background-color: transparent;
     color: black;
+    border-radius: 0.25rem;
 }
 
 .readBtn:hover{
