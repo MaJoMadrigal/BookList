@@ -10,10 +10,6 @@ function SmallCard() {
   const know = useSelector((state) => state.bookStore.bookList)
   const dispatch = useDispatch()
   const [searchBook, setSearchBook] = useState('');
-  const [isReadMoreShown,setReadMoreShown] = useState(false);
-  const toggleBtn = () => {
-    setReadMoreShown(prevState => !prevState)
-  }
 
   useEffect(() => {
     dispatch(getBooks());
@@ -54,8 +50,7 @@ function SmallCard() {
               {point.author}
             </Card.Subtitle>
             <Card.Text>
-              { isReadMoreShown ? (point.review) : (point.review).substr(0,100) }
-              <button className='readBtn' onClick={toggleBtn}>{isReadMoreShown ? 'Read less' : 'Read more'}</button>
+              {point.review}
             </Card.Text>
             <Button
               variant='primary'

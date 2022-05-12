@@ -83,6 +83,7 @@ function Form() {
             id='review'
             name='review'
             value={review}
+            maxLength="1500"
             onChange={(e) => setReview(e.target.value)}
           />
         </div>
